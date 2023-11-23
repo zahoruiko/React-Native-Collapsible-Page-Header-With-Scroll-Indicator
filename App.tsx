@@ -13,6 +13,7 @@ const App = () => {
   const handleOnPressRightNode = () => {
     console.log('Pressed Right button!');
   };
+  
   const userAccountImage = 'https://unsplash.it/30/30';
 
   return (
