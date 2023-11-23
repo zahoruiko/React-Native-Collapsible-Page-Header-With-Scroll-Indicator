@@ -3,15 +3,16 @@ import { GestureResponderEvent, Image, StyleSheet, TouchableOpacity } from 'reac
 
 type TUserAccountButtonProps = {
   onPress: (event: GestureResponderEvent) => void;
+  imgSrc: string;
 };
 
-const UserAccountButton: React.FC<TUserAccountButtonProps> = ({ onPress }) => {
+const UserAccountButton: React.FC<TUserAccountButtonProps> = ({ onPress, imgSrc }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <Image
         style={styles.profilePhoto}
         source={{
-          uri: 'https://unsplash.it/30/30'
+          uri: imgSrc
         }}
       />
     </TouchableOpacity>

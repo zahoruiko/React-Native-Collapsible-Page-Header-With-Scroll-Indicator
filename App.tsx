@@ -13,12 +13,13 @@ const App = () => {
   const handleOnPressRightNode = () => {
     console.log('Pressed Right button!');
   };
+  const userAccountImage = 'https://unsplash.it/30/30';
 
   return (
     <ContentScrollerWithCollapsibleHeader
       headerTitle="Header title"
       leftButton={<BackButton onPress={handleOnPressLeftNode} />}
-      rightButton={<UserAccountButton onPress={handleOnPressRightNode} />}
+      rightButton={<UserAccountButton imgSrc={userAccountImage} onPress={handleOnPressRightNode} />}
     >
       <ScrollContent />
     </ContentScrollerWithCollapsibleHeader>
