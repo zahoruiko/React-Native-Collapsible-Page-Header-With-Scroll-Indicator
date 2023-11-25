@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { DimensionValue, StyleSheet, Text, View } from 'react-native';
 
 type TPageHeaderProps = {
   headerText?: string;
@@ -22,14 +22,10 @@ const PageHeader: React.FC<TPageHeaderProps> = ({
   progressBarColor = 'orange',
   progressBarBackgroundColor = '#FDEBD0'
 }) => {
-  const [screenWidth, setScreenWidth] = useState(0);
-
-  const handleChangeOrientation = () => {
-    setScreenWidth(Dimensions.get('window').width);
-  };
+  const progressBarLength: DimensionValue = `${progressBarPosition * 100}%`;
 
   return (
-    <View style={styles.mainWrapper} onLayout={handleChangeOrientation}>
+    <View style={styles.mainWrapper}>
       <View style={[styles.pageHeaderContainer, { backgroundColor: headerBackgroundColor }]}>
         <View style={styles.leftItem}>{leftButton}</View>
         <View style={styles.headerItem}>
@@ -39,7 +35,7 @@ const PageHeader: React.FC<TPageHeaderProps> = ({
       </View>
       <View style={[styles.progressBarWrapper, { backgroundColor: progressBarBackgroundColor }]}>
         <View
-          style={[styles.progressBar, { width: screenWidth * progressBarPosition, backgroundColor: progressBarColor }]}
+          style={[styles.progressBar, { width: progressBarLength, backgroundColor: progressBarColor }]}
         />
       </View>
     </View>
